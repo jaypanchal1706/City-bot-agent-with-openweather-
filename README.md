@@ -116,19 +116,6 @@ PowerShell:
 .\.venv\Scripts\Activate.ps1
 ```
 
-If PowerShell blocks script execution for the current session:
-
-```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
-.\.venv\Scripts\Activate.ps1
-```
-
-You should see:
-
-```text
-(.venv) PS D:\your-project-folder>
-```
-
 ### 4. Install dependencies
 
 ```bash
@@ -228,8 +215,8 @@ The Streamlit interface contains:
 
 ### Sidebar
 
-- 🌤️ Ahmedabad Weather
-- 📰 Ahmedabad News
+- 🌤️ City Weather
+- 📰 city News
 - 🌤️📰 Both
 - 🗑️ Clear Chat
 
@@ -243,14 +230,6 @@ The Streamlit interface contains:
 
 ## 🔒 Security
 
-Never hard-code API keys directly in Python.
-
-### ❌ Do not do this
-
-```python
-API_KEY = "your-real-api-key"
-```
-
 ### ✅ Use `.env`
 
 ```env
@@ -259,70 +238,6 @@ TAVILY_API_KEY=your-key
 GROQ_API_KEY=your-key
 ```
 
-Also add `.env` to `.gitignore:
-
-```gitignore
-.env
-.venv/
-__pycache__/
-*.pyc
-```
-
-## 🛠️ Troubleshooting
-
-### `ModuleNotFoundError`
-
-If you see:
-
-```text
-ModuleNotFoundError: No module named 'streamlit'
-```
-
-install Streamlit:
-
-```bash
-python -m pip install streamlit
-```
-
-For other missing packages, install the dependencies:
-
-```bash
-python -m pip install python-dotenv requests tavily-python langchain langchain-groq
-```
-
-### Invalid OpenWeather API key
-
-If you see:
-
-```text
-Error: Invalid API key
-```
-
-check that:
-
-```env
-OPENWEATHER_API_KEY=your_key
-```
-
-is present in `.env` and that the key is valid.
-
-### Missing API keys
-
-If the application reports missing API keys, make sure `.env` is located in the project directory and contains all required variables.
-
-### Streamlit command not found
-
-Instead of:
-
-```bash
-streamlit run streamlit_app.py
-```
-
-use:
-
-```bash
-python -m streamlit run streamlit_app.py
-```
 
 ## 🚀 Future Improvements
 
